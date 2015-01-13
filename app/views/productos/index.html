@@ -1,0 +1,33 @@
+<div ng-class="ProductosCtrl">
+
+	<table class="table" ng-show="!show_editor">
+		<thead>
+			<tr>
+				<th>Código</th>
+				<th>Descripción</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tr ng-repeat="producto in productos">
+			<td>{{producto.codigo}}</td>
+			<td>{{producto.descripcion}}</td>
+			<td><a ng-click="select(producto)">Editar</a></td>
+		</tr ng-repeat>
+	</table>
+
+	<div ng-show="show_editor">
+		<form>
+			<ul>
+				<li>
+					<label>Código</label>
+					<input type="text" ng-model="selected.codigo" />
+				</li>
+				<li>
+					<label>Descripción</label>
+					<textarea ng-model="selected.descripcion"></textarea>
+				</li>
+			</ul>
+			<a ng-click="save(selected)">Guardar</a>
+			<a ng-click="cancel()">Cancelar</a>
+		</form>
+</div>
